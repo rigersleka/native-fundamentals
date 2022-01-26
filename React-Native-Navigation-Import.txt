@@ -1,3 +1,15 @@
--To implement Navigation based on stack, install the following packages:
+Follow reactnavigation.org page to install the navigation dependencies:
 
-expo install @react-native-community/masked-view react-native-gesture-handler react-native-screens @react-navigation/native @react-navigation/stack
+https://reactnavigation.org/docs/stack-navigator/
+
+Better using expo instead of npm, because this adroid project is based on expo cli
+
+
+Getting this error: error: bundling failed: Error: Unable to resolve module `react-native-safe-area-context`
+    - npm install --save react-navigation
+
+    - expo install react-native-gesture-handler react-native-reanimated react-navigation-stack
+
+    - expo install react-native-safe-area-view react-native-safe-area-context
+
+    - expo install @react-native-community/masked-view
