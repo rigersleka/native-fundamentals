@@ -2,14 +2,11 @@ import React from 'react';
 import { Button, View, Text, StyleSheet } from 'react-native';
 
 const HomeScreen = ( {navigation, route} ) => {
-  console.log(route);
-  
   return (
     <View style={styles.mainView}>
-      <Text>Home Screen</Text>
         <Button
           title="Go to Details"
-          onPress={() => {navigation.navigate("Home_to_Details")}}/>
+          onPress={() => {navigation.navigate("Home_to_Details", {screenNumber: 1})}}/>
     </View>
   )
 };
