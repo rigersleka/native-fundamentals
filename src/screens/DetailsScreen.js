@@ -3,11 +3,15 @@ import React from 'react';
 import { View, Button, Text, StyleSheet } from 'react-native';
 
 const DetailsScreen = ({ navigation, route }) => {
-  const {screenNumber} = route.params; // desctruct item of params
-  console.log(screenNumber);
+  console.log(route.params);
+  const movie = route.params.movie;
+
   return (
     <View style={styles.mainView}>
-      <Text style={{fontSize: 10}}>{screenNumber}</Text>
+      <Text style={{ fontSize: 20 }}>
+        {movie.title} ({movie.release})
+      </Text>
+      <Text style={{ fontSize: 100 }}>{movie.screenNumber}</Text>
       <Button
         title='Go to Image'
         onPress={() => {
@@ -15,15 +19,17 @@ const DetailsScreen = ({ navigation, route }) => {
         }}
       />
       <Button
-        title='Go to More Details Again'
+        title='More Details'
         onPress={() => {
-          navigation.push('Details_to_Details', {screenNumber: (screenNumber + 1)});
+          movie.screenNumber = movie.screenNumber + 1;
+          console.log(movie);
+          navigation.push('Details_to_Details', { movie: movie }); // push a new route to navigation if doesnt exist
         }}
       />
       <Button
-        title='Go Back Home'
+        title='Go Back to Home'
         onPress={() => {
-          navigation.goBack(); //similiar to pop() (popTo() - directly to first screen)
+          navigation.popToTop(); // getBack and pop() navigates one by one to previous pages
         }}
       />
     </View>
