@@ -1,10 +1,29 @@
 import { NavigationHelpersContext } from '@react-navigation/native';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, Button, Text, StyleSheet } from 'react-native';
 
 const DetailsScreen = ({ navigation, route }) => {
   console.log(route.params);
   const movie = route.params.movie;
+
+  useEffect(() => {
+    var xhr = new XMLHttpRequest();
+    xhr.open(
+      'GET',
+      'http://www.omdbapi.com/?apikey=cc456efe&t=Star+Wars&y=1977'
+    );
+    xhr.send();
+
+    xhr.onload = () => {
+      if (xhr.status === 200) {
+        console.log(xhr.responseText);
+      } else {
+        console.log(`HTTP request failet ${xhr.status}`);
+      }
+    };
+
+    console.log(xhr);
+  }, []);
 
   return (
     <View style={styles.mainView}>
