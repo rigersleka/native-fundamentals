@@ -2,7 +2,7 @@ Follow reactnavigation.org page to install the navigation dependencies:
 
 https://reactnavigation.org/docs/stack-navigator/
 
-Better using expo instead of npm, because this adroid project is based on expo cli
+Better using expo instead of npm, because this android project is based on expo cli
 
 
 Getting this error: error: bundling failed: Error: Unable to resolve module `react-native-safe-area-context`
